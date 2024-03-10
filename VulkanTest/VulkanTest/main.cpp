@@ -1,5 +1,4 @@
 #define GLFW_INCLUDE_VULKAN
-#include <GLFW/glfw3.h>
 #include <stdexcept>
 #include <vector>
 
@@ -7,8 +6,6 @@
 using std::string;
 
 #include "VulkanRenderer.h"
-
-#define MAX 99;
 
 GLFWwindow* window = nullptr;
 VulkanRenderer vulkanRenderer;

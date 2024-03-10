@@ -33,3 +33,8 @@
 
 # Ignore GLFW and GLM directories
 externals
+
+# Ignore .vs and x64 dirs
+.vs
+x64/
+VulkanTest/VulkanTest/VulkanTest.vcxproj
