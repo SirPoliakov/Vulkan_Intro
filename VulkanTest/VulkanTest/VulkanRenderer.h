@@ -1,9 +1,9 @@
 #pragma once
 #define GLFW_INCLUDE_VULKAN
 #define GLFW_DLL
+
 #include <GLFW/glfw3.h>
 #include "VulkanUtilities.h"
-
 #include <stdexcept>
 
 struct 
@@ -45,10 +45,19 @@ private:
 	VkFormat swapchainImageFormat;
 	VkExtent2D swapchainExtent;
 
+	VkPipelineLayout pipelineLayout;
+
+	void createRenderPass();
+	VkRenderPass renderPass;
+
+	VkPipeline graphicsPipeline;
+
 	std::vector<SwapchainImage> swapchainImages;
 
 	void createSwapchain();
 	void createSurface();
+	void createGraphicsPipeline();
+	VkShaderModule createShaderModule(const std::vector<char>& code);
 
 	VkImageView createImageView(VkImage image, VkFormat format, VkImageAspectFlags aspectFlags);
 
