@@ -38,4 +38,3 @@ externals
 .vs
 x64/
 VulkanTest/VulkanTest/VulkanTest.vcxproj
-VulkanTest/VulkanTest/VulkanTest.vcxproj.filters
