@@ -33,6 +33,16 @@ public:
 
 private:
 
+	std::vector<VkSemaphore> imagesAvailable;
+	std::vector<VkSemaphore> rendersFinished;
+	std::vector<VkFence> drawFences;
+
+	VkSemaphore imageAvailable;
+	VkSemaphore renderFinished;
+
+	const int MAX_FRAME_DRAWS = 2;
+	int currentFrame = 0;
+
 	GLFWwindow* window;
 	VkInstance instance;
 
@@ -47,8 +57,27 @@ private:
 
 	VkPipelineLayout pipelineLayout;
 
+	std::vector<VkFramebuffer> swapchainFramebuffers;
+	void createFramebuffers();
+
+	VkCommandPool graphicsCommandPool;
+	void createGraphicsCommandPool();
+
+	std::vector<VkCommandBuffer> commandBuffers;
+	void createGraphicsCommandBuffers();
+
+	void recordCommands();
+
+	// -- Draw -- //
+	void draw();
+	// ---------- //
+
 	void createRenderPass();
 	VkRenderPass renderPass;
+
+
+	void createSynchronisation();
+
 
 	VkPipeline graphicsPipeline;
 
